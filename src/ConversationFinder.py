@@ -37,6 +37,14 @@ def get_satisfying_conversations(script):
 
     return listConversations
 
+
+def pass_test1(femDict):
+    counter = 0
+    for girl in femDict:
+        if femDict[girl] >= 10:
+            counter += 1
+    return counter >= 2
+
 def pass_test2(script):
     return get_satisfying_conversations(script) != []
 
