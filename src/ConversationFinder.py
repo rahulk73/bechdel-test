@@ -1,26 +1,17 @@
-"""
 
-"""
-
-def get_satisfying_conversations(script):
+def get_satisfying_conversations(script, menDict, femDict):
     """
 
     :return: A list of lists containing the conversations
     """
-    # script = ["Mark","Sally", "Selina", "Sally", "Sally", "Selina", "Sally", "Jeremy", "Sally", "Selina", "Sally", "Selina", "Selina", "Sally"]
-    menDict = {"Mark":5,"Jeremy":1}
-    femDict = {"Sally":4, "Selina":8, "Bobby":5}
-    # script = get_script()
-    # menDict = get_men_dict()
-    # femDict = get_fem_dict()
     counter = 0
     index = 0
     listConversations = []
     for line in script:
-        if line in femDict:
+        if line.name in femDict:
             counter += 1
 
-        if line in menDict:
+        if line.name in menDict:
             if counter >= 6:
                 subList = slice(index-counter, index, 1)
                 listConversations.append(script[subList])
@@ -33,7 +24,13 @@ def get_satisfying_conversations(script):
                 subList = slice(index - counter, index, 1)
                 listConversations.append(script[subList])
 
-
+    for conversation in listConversations:
+        if len(conversation) >= 20:
+            list1 = slice(0, int(len(conversation)/2), 1)
+            list2 = slice(int(len(conversation)/2) , len(conversation), 1)
+            listConversations.remove(conversation)
+            listConversations.append(conversation[list1])
+            listConversations.append(conversation[list2])
 
     return listConversations
 
@@ -45,10 +42,9 @@ def pass_test1(femDict):
             counter += 1
     return counter >= 2
 
-def pass_test2(script):
-    return get_satisfying_conversations(script) != []
+def pass_test2(script, menDict, femDict):
+    return get_satisfying_conversations(script, menDict, femDict) != []
 
-# print(get_satisfying_conversations())
-print(pass_test2())
+
 
 
