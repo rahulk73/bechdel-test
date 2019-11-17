@@ -1,6 +1,7 @@
 from tika import parser
 import re
 import gender_guesser.detector as gender
+from imdb import IMDb
 
 class Dialogue:
     def __init__(self,name):
@@ -14,7 +15,7 @@ class Dialogue:
 
 
 class CastList :
-    def __init__(self,script="Scripts/1GoneGirl.pdf"):
+    def __init__(self,script="Scripts/3Inception.pdf"):
         self.script=script
         self.dialogues = []
         self.female_d={}
@@ -64,7 +65,5 @@ class CastList :
 
 if __name__ == '__main__':
     o1=CastList()
+    print(o1.get_dialogues()[:10])
     print([x.name for x in o1.get_dialogues()[:10]])
-
-# d = gender.Detector(case_sensitive=False)
-# print(d.get_gender('the','usa'))
