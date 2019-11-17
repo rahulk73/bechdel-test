@@ -65,16 +65,9 @@ class CastList :
 
 if __name__ == '__main__':
     o1=CastList()
-<<<<<<< HEAD:castlist.py
     print(o1.get_dialogues()[:10])
     print([x.name for x in o1.get_dialogues()[:10]])
-=======
     print([x.name for x in o1.get_dialogues()[:10]])
 
 # d = gender.Detector(case_sensitive=False)
 # print(d.get_gender('SAITO'))
-<<<<<<< HEAD
->>>>>>> sex-machine:src/castlist.py
-=======
->>>>>>> piechart:src/castlist.py
->>>>>>> 877b737db9d42061388c8eb7ea0b12b289910b06

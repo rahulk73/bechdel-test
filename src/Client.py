@@ -3,7 +3,7 @@ from src.ConversationFinder import *
 from src.Classifier import *
 from src.piechart import *
 
-castlist = CastList("../Scripts/Oceans11.pdf")
+castlist = CastList("../Scripts/TheHelp.pdf")
 menDict = castlist.get_male()
 femDict = castlist.get_female()
 PieChart(menDict, femDict)
