@@ -1,10 +1,12 @@
 from src.castlist import *
 from src.ConversationFinder import *
 from src.Classifier import *
+from src.piechart import *
 
 castlist = CastList("../Scripts/Oceans11.pdf")
 menDict = castlist.get_male()
 femDict = castlist.get_female()
+PieChart(menDict, femDict)
 script = castlist.get_dialogues()
 all_conv = get_satisfying_conversations(script, menDict, femDict)
 all_conv_sliced = slice_conversation(all_conv)
