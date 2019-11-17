@@ -1,3 +1,8 @@
+from src.castlist import *
+
+SLICE_MAX_LENGTH = 20
+CONV_MIN_LENGTH = 6
+NUM_OF_LINES = 10
 
 def get_satisfying_conversations(script, menDict, femDict):
     """
@@ -12,7 +17,7 @@ def get_satisfying_conversations(script, menDict, femDict):
             counter += 1
 
         if line.name in menDict:
-            if counter >= 6:
+            if counter >= CONV_MIN_LENGTH:
                 subList = slice(index-counter, index, 1)
                 listConversations.append(script[subList])
             counter = 0
@@ -20,13 +25,24 @@ def get_satisfying_conversations(script, menDict, femDict):
         index += 1
 
         if index == len(script):
-            if counter >= 6:
+            if counter >= CONV_MIN_LENGTH:
                 subList = slice(index - counter, index, 1)
                 listConversations.append(script[subList])
+    # listConversations = slice_conversation(listConversations)
+    return listConversations
+
+def slice_conversation(listConversations):
+    for conversation in listConversations:
+        if len(conversation) >= SLICE_MAX_LENGTH:
+            list1 = slice(int(len(conversation)/2))
+            list2 = slice(int(len(conversation)/2) , len(conversation), 1)
+            listConversations.remove(conversation)
+            listConversations.append(conversation[list1])
+            listConversations.append(conversation[list2])
 
     for conversation in listConversations:
-        if len(conversation) >= 20:
-            list1 = slice(0, int(len(conversation)/2), 1)
+        if len(conversation) >= SLICE_MAX_LENGTH:
+            list1 = slice(int(len(conversation)/2))
             list2 = slice(int(len(conversation)/2) , len(conversation), 1)
             listConversations.remove(conversation)
             listConversations.append(conversation[list1])
@@ -38,7 +54,7 @@ def get_satisfying_conversations(script, menDict, femDict):
 def pass_test1(femDict):
     counter = 0
     for girl in femDict:
-        if femDict[girl] >= 10:
+        if femDict[girl] >= NUM_OF_LINES:
             counter += 1
     return counter >= 2
 

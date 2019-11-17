@@ -62,9 +62,9 @@ class CastList :
     def get_dialogues(self):
         return self.dialogues
 
-# if __name__ == '__main__':
-#     o1=CastList()
-#     print([x.name for x in o1.get_dialogues()[:10]])
+if __name__ == '__main__':
+    o1=CastList()
+    print([x.name for x in o1.get_dialogues()[:10]])
 
-d = gender.Detector(case_sensitive=False)
-print(d.get_gender('SAITO'))
+# d = gender.Detector(case_sensitive=False)
+# print(d.get_gender('SAITO'))
