@@ -1,6 +1,6 @@
 # Bechdel Test
 
-A move is said to pass the bechdel test if it follows the following criteria :
+A movie is said to pass the bechdel test if it follows the following criteria :
 
 1. The movie has to have at least two women in it,
 2. who talk to each other,
