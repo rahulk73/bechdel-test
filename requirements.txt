@@ -7,7 +7,7 @@ gender-guesser==0.4.0
 idna==2.8
 IMDbPY==6.8
 importlib-metadata==0.23
-lxml==4.4.1
+lxml==4.6.3
 more-itertools==7.2.0
 murmurhash==1.0.2
 numpy==1.17.4
