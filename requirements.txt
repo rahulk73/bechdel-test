@@ -22,6 +22,6 @@ srsly==0.2.0
 thinc==7.3.1
 tika==1.22
 tqdm==4.38.0
-urllib3==1.25.7
+urllib3==1.25.8
 wasabi==0.4.0
 zipp==0.6.0
